@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int main() {
+int main(){
     string data;
     
     cout << "== SENDER SIDE ==" << endl;
@@ -18,13 +18,11 @@ int main() {
 
     int m = data.length();
     int r = 0;
-
     // 1. Calculate the number of redundant bits (r)
     // Formula: 2^r >= m + r + 1
-    while (pow(2, r) < m + r + 1) {
+    while (pow(2, r) < m + r + 1){
         r++;
     }
-
     int n = m + r;
     vector<int> hamming(n + 1, 0); // 1-based indexing
 
@@ -56,6 +54,5 @@ int main() {
         cout << hamming[i];
     }
     cout << endl;
-
     return 0;
 }

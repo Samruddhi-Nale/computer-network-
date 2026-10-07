@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-int main() {
+int main(){
     // Step 1: Read the frame length n (implicitly handled by string)[span_2](start_span)[span_2](end_span).
     // Step 2: Read the input frame into array a[][span_3](start_span)[span_3](end_span).
     string a;
@@ -24,9 +23,9 @@ int main() {
         b += a[i]; 
         
         // Step 6: If a[i] = 1, then increment count; otherwise, set count = 0[span_8](start_span)[span_8](end_span).
-        if (a[i] == '1') {
+        if (a[i] == '1'){
             count++;
-        } else {
+        } else{
             count = 0;
         }
         
@@ -44,6 +43,5 @@ int main() {
     
     // Step 10: Display the frame after bit stuffing by printing all elements of array b[][span_14](start_span)[span_14](end_span).
     cout << "Stuffed Frame : " << b << endl;
-    
     return 0;
 }

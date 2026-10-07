@@ -5,30 +5,27 @@ It is especially useful for converting data and breaking a string into separate 
 #include <string>
 #include <vector>
 #include <sstream>
-
 using namespace std;
 
 // Function to validate the IP address and extract its 4 octets
-bool validateAndExtractIP(const string& ip, vector<int>& octets) {
+bool validateAndExtractIP(const string& ip, vector<int>& octets){
     octets.clear();
     int dotCount = 0;
     
     // Check for invalid characters and count dots
-    for (char c : ip) {
-        if (c == '.') {
+    for (char c : ip){
+        if (c == '.')
             dotCount++;
-        } else if (!isdigit(c)) {
-            return false; // Invalid character found
-        }
+        else if (!isdigit(c)) 
+            return false;   
     }
     
     // A valid IPv4 must have exactly 3 dots
     if (dotCount != 3) return false;
-
     stringstream ss(ip);
     string token;
     
-    while (getline(ss, token, '.')) {
+    while (getline(ss, token, '.')){
         // Check for empty tokens (e.g., "192..1.1") or overly long tokens
         if (token.empty() || token.length() > 3) return false;
         
@@ -42,25 +39,23 @@ bool validateAndExtractIP(const string& ip, vector<int>& octets) {
         
         octets.push_back(num);
     }
-    
     return octets.size() == 4;
 }
 
-int main() {
+int main(){
     string ip;
     vector<int> octets;
 
     // Loop until a valid IP is entered
-    while (true) {
-        cout << "Enter an IPv4 address in dotted decimal format: ";
+    while (true){
+        cout <<"Enter an IPv4 address in dotted decimal format: ";
         cin >> ip;
 
-        if (validateAndExtractIP(ip, octets)) {
+        if (validateAndExtractIP(ip, octets)){
             cout << "\nValid IPv4 Address entered.\n\n";
             break;
-        } else {
+        } else 
             cout << "Invalid IPv4 Address. Please try again.\n\n";
-        }
     }
 
     int firstOctet = octets[0];
@@ -98,13 +93,11 @@ int main() {
         hostId = "Not Applicable";
     }
 
-    // Display Results
     //cout << "--- IP Address Details ---\n";
     cout << "IP Address : " << ip << "\n";
     cout << "Class      : " << ipClass << "\n";
     cout << "Subnet Mask: " << mask << "\n";
     cout << "Network ID : " << netId << "\n";
     cout << "Host ID    : " << hostId << "\n";
-
     return 0;
 }

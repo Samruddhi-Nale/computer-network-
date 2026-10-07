@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
-
-int main() {
+int main(){
     int x;
     cout<<"Enter bits of the frame:";
     cin>>x;
@@ -22,14 +20,14 @@ int main() {
     cout << "Stuffed Frame : " << a << endl;
     
     // Step 4: Repeat Steps 5–11 (adjusted for loop) until i < n[span_20](start_span)[span_20](end_span).
-    while (i < n) {
+    while (i < n){
         // Step 5: Copy a[i] to b[j][span_21](start_span)[span_21](end_span).
         b += a[i]; 
         
         // Step 6: If a[i] = 1, increment count; otherwise, set count = 0[span_22](start_span)[span_22](end_span).
-        if (a[i] == '1') {
+        if (a[i] == '1'){
             count++;
-        } else {
+        } else{
             count = 0;
         }
         
@@ -46,6 +44,5 @@ int main() {
     
     // Step 10: Display the original frame after bit de-stuffing by printing all elements of array b[][span_27](start_span)[span_27](end_span).
     cout << "Original Frame: " << b << endl;
-    
     return 0;
 }
